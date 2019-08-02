@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cattle.io/creator: norman
+  name: garnet-be
+  namespace: garnet
+spec:
+  ports:
+  - port: 12306
+    name: port2
+    nodePort: 32308
+    protocol: TCP
+    targetPort: 12306
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-garnet-be
+  type: NodePort

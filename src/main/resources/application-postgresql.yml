@@ -1,0 +1,31 @@
+###############################Web配置######################################
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 12306
+    servlet:
+        context-path: /garnet
+
+spring:
+    datasource:
+        url: jdbc:postgresql://192.168.108.100:5432/garnet
+        username: garnet
+        password: garnet
+        driverClassName: org.postgresql.Driver
+
+    aop:
+      auto: true
+      proxy-target-class: false
+    devtools:
+        restart:
+          additional-exclude: views/**
+
+# Mybatis配置
+mybatis:
+    mapper-locations: classpath:mapperPostgres/*.xml
+    type-aliases-packag: com.richstonedt.garnet.model
+
+cors:
+    allowedOrigins:

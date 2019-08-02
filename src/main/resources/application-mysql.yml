@@ -1,0 +1,13 @@
+spring:
+    datasource:
+#   PG
+#        url: jdbc:postgresql://192.168.6.97:5432/garnet3
+#        username: postgres
+#        password: postgres
+#        driverClassName: org.postgresql.Driver
+
+#   MySQL
+#         url: jdbc:mysql://localhost:3306/garnet?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&useSSL=false
+#         username: root
+#         password: 123456
+#         driverClassName: com.mysql.jdbc.Driver

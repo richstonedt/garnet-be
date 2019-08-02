@@ -1,0 +1,31 @@
+############################### Web配置 orcale环境 ######################################
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 12306
+    servlet:
+      context-path: /garnet
+
+spring:
+    datasource:
+         url: jdbc:oracle:thin:@//192.168.35.24:1521/hz_huangyuping
+         username: HZ_HUANGYUPING
+         password: Hz_2017!Huangyp#$1012
+         driverClassName: oracle.jdbc.OracleDriver
+
+    aop:
+      auto: true
+      proxy-target-class: false
+    devtools:
+        restart:
+          additional-exclude: views/**
+
+# Mybatis配置
+mybatis:
+    mapper-locations: classpath:mapperOracle/*.xml
+    type-aliases-packag: com.richstonedt.garnet.model
+
+cors:
+  allowedOrigins:

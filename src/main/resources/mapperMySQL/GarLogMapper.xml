@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richstonedt.garnet.dao.GarLogDao">
+
+    <select id="getLogs" resultType="com.richstonedt.garnet.model.GarLog">
+        SELECT * FROM gar_log
+        <where>
+            <if test="userName != null and userName != ''">
+                username like CONCAT('%',#{userName},'%')
+            </if>
+            <if test="ip != null and ip != ''">
+                AND ip like CONCAT('%',#{ip},'%')
+            </if>
+            <if test="startDate != null">
+                AND created_time &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND created_time &lt;  #{endDate}
+            </if>
+        </where>
+        ORDER BY created_time desc
+        <if test="offset != null and limit != -1">
+            limit #{offset} , #{limit};
+        </if>;
+    </select>
+
+    <select id="getLogsCount" resultType="int">
+        SELECT count(1) FROM gar_log;
+    </select>
+
+    <select id="getLogById" resultType="com.richstonedt.garnet.model.GarLog">
+        SELECT * FROM gar_log
+        <where>
+            id = #{id};
+        </where>
+    </select>
+
+    <insert id="saveLog" parameterType="com.richstonedt.garnet.model.GarLog">
+        INSERT INTO gar_log
+        (
+            username,
+            operation,
+            method,
+            url,
+            ip,
+        sql_text,
+        created_time
+        )
+        VALUES
+            (
+                #{userName},
+                #{operation},
+                #{method},
+                #{url},
+                #{ip},
+        #{sqlText},
+        #{createdTime}
+            );
+    </insert>
+
+</mapper>

@@ -1,0 +1,6 @@
+# ignore files/folders about ide config
+*.iml
+
+# ignore files/folder generaeted
+/.idea
+/target/

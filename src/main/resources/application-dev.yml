@@ -1,0 +1,7 @@
+spring:
+    datasource:
+        #url: jdbc:postgresql://192.168.8.115:5432/garnet_travel
+        url: jdbc:postgresql://192.168.108.3:30543/garnet_travel
+        username: postgres
+        password: postgres
+        driverClassName: org.postgresql.Driver

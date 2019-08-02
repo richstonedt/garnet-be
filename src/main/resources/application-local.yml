@@ -1,0 +1,21 @@
+spring:
+    datasource:
+#        url: jdbc:postgresql://192.168.6.97:5432/garnet2
+#        url: jdbc:postgresql://localhost:5432/test_db
+#        username: test
+#        password: 123456
+
+        #        url: jdbc:postgresql://postgres-test:5432/garnet_2.0
+#        url: jdbc:postgresql://192.168.8.115:5432/garnet_travel
+#        url: jdbc:postgresql://192.168.108.3:30543/garnet_travel
+#        username: postgres
+#        password: postgres
+#        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/garnet
+        username: jaffray
+        password: jaffray
+        driverClassName: org.postgresql.Driver
+#        url: jdbc:oracle:thin:@192.168.0.10:1521:whxy
+#        username: ming
+#        password: 123456
+#        driverClassName: oracle.jdbc.OracleDriver

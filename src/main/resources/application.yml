@@ -1,0 +1,33 @@
+###############################Web配置######################################
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 12306
+  servlet:
+    context-path: /garnet
+#    context-path: /garnet
+
+spring:
+  profiles:
+    active: dev
+#    local
+  #        active: dev
+  #        active: oracle
+  #        active: prod
+  aop:
+    auto: true
+    proxy-target-class: false
+  devtools:
+    restart:
+      additional-exclude: views/**
+
+# Mybatis配置
+mybatis:
+  #    mapper-locations: classpath:mapperOracle/*.xml
+  mapper-locations: classpath:mapperPostgres/*.xml
+  type-aliases-packag: com.richstonedt.garnet.model
+#跨域配置，多个域用逗号隔开
+cors:
+  allowedOrigins: http://192.168.108.3:30080,http://localhost:12305,http://localhost:12307,http://localhost:12308,http://a.cn,http://localhost
